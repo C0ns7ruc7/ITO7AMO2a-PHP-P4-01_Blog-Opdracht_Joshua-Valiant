@@ -45,3 +45,16 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# costum stuff
+# =========================
+
+# laravel
+
+.env
+/vendor/*
+
+# PHPstorm
+
+/.idea
+/node_modules
