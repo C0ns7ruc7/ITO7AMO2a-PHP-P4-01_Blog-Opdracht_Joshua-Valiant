@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="nl">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Valiant Hekert">
+	<meta name="author" content="Valiant Hekert">
 
     <title>blog site</title>
 
@@ -27,8 +27,8 @@
 <body>
     <div>
         <a href="/">start pagina</a>
-        <a href="/show">lijst weergave</a>
+        <a href="/">lijst weergave</a>
     </div>
-    @yield('content')
+	
 </body>
 </html>
