@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', 'LijstController@index');
-Route::get('/show', 'LijstController@show');
-
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/lijst', function () {
+    return view('lijst');
+});
