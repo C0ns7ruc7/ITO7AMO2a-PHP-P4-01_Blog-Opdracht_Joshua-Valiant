@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', 'LijstController@index');
-Route::get('/show', 'LijstController@show');
+Route::get('/', 'GenericController@index');
 
+Route::group(['prefix' => '/lijst'], function() {
+    Route::get('/', 'LijstController@index');
+    Route::post('/create', 'LijstController@create');
+    Route::post('/store/{request}', 'LijstController@store');
+    Route::get('/show/{id}', 'LijstController@show');
+    Route::post('/edit/{id}', 'LijstController@edit');
+    Route::post('/update/{id}/{request}', 'LijstController@update');
+    Route::post('/destroy/{id}', 'LijstController@destroy');
+});

@@ -27,7 +27,7 @@
 <body>
     <div>
         <a href="/">start pagina</a>
-        <a href="/show">lijst weergave</a>
+        <a href="/lijst">lijst weergave</a>
     </div>
     @yield('content')
 </body>

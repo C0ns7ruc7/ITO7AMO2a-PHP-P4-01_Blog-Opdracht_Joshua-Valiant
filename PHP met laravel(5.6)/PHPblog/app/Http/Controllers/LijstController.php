@@ -13,7 +13,7 @@ class LijstController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('lijst.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class LijstController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('lijst.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class LijstController extends Controller
      */
     public function store(Request $request)
     {
-        return view('store');
+        return view('lijst.store');
     }
 
     /**
@@ -45,7 +45,7 @@ class LijstController extends Controller
      */
     public function show($id)
     {
-        return view('show');
+        return view('lijst.show');
     }
 
     /**
@@ -56,7 +56,7 @@ class LijstController extends Controller
      */
     public function edit($id)
     {
-        return view('edit');
+        return view('lijst.edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class LijstController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view('update');
+        return view('lijst.update');
     }
 
     /**
@@ -79,6 +79,6 @@ class LijstController extends Controller
      */
     public function destroy($id)
     {
-        return view('destroy');
+        return view('lijst.destroy');
     }
 }
