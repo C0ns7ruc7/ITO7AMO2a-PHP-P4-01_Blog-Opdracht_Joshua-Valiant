@@ -12,7 +12,7 @@ Maak een blog in PHP die aan de volgende eisen voldoet:
 	· Ook de SQL code moet eenvoudig zijn, maar wel leesbaar en logisch
 	· De code moet makkelijk uit te breiden zijn, met nieuwe functionaliteiten
 
-Er moet verschillende versie gemaakt worden:
+Er moeten verschillende versies gemaakt worden:
 
 	1. Een versie in PHP zonder classes en zonder PDO
 	2. Een versie in PHP zonder classes en met PDO
@@ -21,3 +21,8 @@ Er moet verschillende versie gemaakt worden:
 
 Al deze versies moeten op elkaar gebaseerd zijn. Je maakt deze opdracht met 2 personen. 
 Beide personen moeten de code delen via GIT. En beide personen moeten de code kunnen uitleggen.
+
+versie nummering uitleg:
+	de naaming van de commits zijn gebaseerd op de nummers van de opdraghten
+	het volgt de logica: versie -> major update -> minor update -> bugfix.
+	indien er aan meerdere versie is gewerkt worden alle nummers genoemd.
