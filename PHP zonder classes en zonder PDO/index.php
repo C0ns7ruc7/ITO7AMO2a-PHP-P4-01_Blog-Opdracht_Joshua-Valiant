@@ -43,10 +43,12 @@ if(isset($_POST['delete'])) {
                                 <p>Titel: <?php echo $row['titel']; ?></p>
                                 <p>Omschrijving: <?php echo $row['body']; ?></p>
                                 <p>Datum: <?php echo $row['datum']; ?></p>
-                                <form method="post" action="index.php" class="delete-task__form">
+                                <br/>
+                                <form method="post" action="index.php" class="delele-task__form">
                                     <input class="task-id" name="task-id" type="hidden" value="<?php echo $row['id']; ?>">
                                     <input class="delete-task" name="delete" type="submit" value="Verwijder" />
                                 </form>
+                                <hr>
                             </div>
                         <?php
                     }
