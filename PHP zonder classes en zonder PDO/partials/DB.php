@@ -19,7 +19,7 @@ $getTasks = 'SELECT * FROM tasklist';
 $tasks = $mysqli->query($getTasks);
 
 // Make task
-function makeTask()
+function makeTask($mysqli)
 {
     $sql = "INSERT INTO tasklist (titel, body, datum)
         VALUES ('" . $_POST["titel"] . "','" . $_POST["body"] . "','" . $_POST["datum"] . "')";
@@ -28,7 +28,7 @@ function makeTask()
 }
 
 // Delete task
-function deleteTask(){
+function deleteTask($mysqli){
     mysqli_query($mysqli,"DELETE FROM tasklist WHERE id='".$_POST["task-id"]."'");
     header("Refresh:0");
 }
