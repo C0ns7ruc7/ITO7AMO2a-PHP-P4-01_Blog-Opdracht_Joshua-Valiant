@@ -7,17 +7,23 @@ $getTasks = 'SELECT * FROM tasklist';
 
 $tasks = $mysqli->query($getTasks);
 
-if(isset($_POST['add'])){
+if(isset($_POST['add'])) {
     $sql = "INSERT INTO tasklist (titel, body, datum)
-        VALUES ('".$_POST["titel"]."','".$_POST["body"]."','".$_POST["datum"]."')";
-    $result = mysqli_query($mysqli,$sql);
+        VALUES ('" . $_POST["titel"] . "','" . $_POST["body"] . "','" . $_POST["datum"] . "')";
+    $result = mysqli_query($mysqli, $sql);
+    header("Refresh:0");
+}
+
+if(isset($_POST['delete'])) {
+    mysqli_query($mysqli,"DELETE FROM tasklist WHERE id='".$_POST["task-id"]."'");
+    header("Refresh:0");
 }
 ?>
 
     <div class="body">
         <div class="create-task">
             <h1>Taak maken</h1>
-            <form method="post" class="create-task__form">
+            <form method="post" action="index.php" class="create-task__form">
                 <label class="form-label titel-label">Titel:</label><br/>
                 <input class="form-input titel-input" type="text" name="titel" placeholder="Titel"><br/><br/>
                 <label class="form-label beschrijving-label">Omschrijving:</label><br/>
@@ -28,17 +34,19 @@ if(isset($_POST['add'])){
             </form>
         </div>
         <div class="tasks">
+            <h1>Takenlijst:</h1>
              <?php
                 if($tasks->num_rows > 0){
-                    ?>
-                        <h1>Takenlijst:</h1>
-                    <?php
                     while($row = $tasks->fetch_assoc()) {
                         ?>
                             <div class="task">
                                 <p>Titel: <?php echo $row['titel']; ?></p>
                                 <p>Omschrijving: <?php echo $row['body']; ?></p>
                                 <p>Datum: <?php echo $row['datum']; ?></p>
+                                <form method="post" action="index.php" class="delete-task__form">
+                                    <input class="task-id" name="task-id" type="hidden" value="<?php echo $row['id']; ?>">
+                                    <input class="delete-task" name="delete" type="submit" value="Verwijder" />
+                                </form>
                             </div>
                         <?php
                     }
