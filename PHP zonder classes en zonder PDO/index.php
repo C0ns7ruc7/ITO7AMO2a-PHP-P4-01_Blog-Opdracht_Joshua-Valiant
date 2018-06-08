@@ -4,7 +4,7 @@ include_once "partials/header.php";
 $mysqli = new mysqli("localhost", "root", "", "php_database_simple");
 
 if(isset($_POST['add'])){
-    $sql = "INSERT INTO tasklist (title, body, post_datum)
+    $sql = "INSERT INTO tasklist (titel, body, datum)
         VALUES ('".$_POST["titel"]."','".$_POST["body"]."','".$_POST["datum"]."')";
     $result = mysqli_query($mysqli,$sql);
 }
