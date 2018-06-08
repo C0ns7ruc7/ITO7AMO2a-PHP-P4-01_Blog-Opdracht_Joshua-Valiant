@@ -28,6 +28,18 @@
         .form-input{
             width: 250px;
         }
+        p{
+            margin: 0;
+        }
+        .create-task{
+
+        }
+        .tasks {
+            margin-top: 30px;
+        }
+        .task{
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
