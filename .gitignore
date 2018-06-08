@@ -53,8 +53,9 @@ Temporary Items
 
 .env
 /vendor/*
+/node_modules
 
 # PHPstorm
 
 /.idea
-/node_modules
+

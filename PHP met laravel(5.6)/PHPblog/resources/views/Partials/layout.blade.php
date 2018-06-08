@@ -30,6 +30,10 @@
         <a href="/">start pagina</a>
         <a href="/lijst">lijst weergave</a>
     </div>
-    @yield('content')
+    <div class="container">
+        <div class="row">
+            @yield('content')
+        </div>
+    </div>
 </body>
 </html>
