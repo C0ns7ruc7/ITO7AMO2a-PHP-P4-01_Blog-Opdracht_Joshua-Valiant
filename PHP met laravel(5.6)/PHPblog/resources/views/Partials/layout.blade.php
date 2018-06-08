@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Valiant Hekert">
+    <meta name="author" content="Joshua, Valiant">
 
-    <title>blog site</title>
+    <title>{{config('app_name')}}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -24,12 +24,17 @@
             height: 100vh;
             margin: 0;
         }
+        textarea{
+            height: 100px
+        }
+        .form-input{
+            width: 250px;
+        }
     </style>
 </head>
 <body>
     <div>
         <a href="/lijst">lijst weergave</a>
-        <a href="/create">start pagina</a>
     </div>
     <div class="container">
         <div class="row">
