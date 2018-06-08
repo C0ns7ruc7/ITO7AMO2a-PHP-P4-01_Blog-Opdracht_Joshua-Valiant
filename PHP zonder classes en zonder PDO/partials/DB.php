@@ -33,6 +33,4 @@ function deleteTask(){
     header("Refresh:0");
 }
 
-// Close connection
-mysqli_close($mysqli);
 ?>
