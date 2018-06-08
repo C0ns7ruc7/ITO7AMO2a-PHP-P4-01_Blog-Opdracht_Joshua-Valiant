@@ -1,22 +1,13 @@
 <?php
 include_once "partials/header.php";
-
-$mysqli = new mysqli("localhost", "root", "", "php_database_simple");
-
-$getTasks = 'SELECT * FROM tasklist';
-
-$tasks = $mysqli->query($getTasks);
+include_once "partials/DB.php";
 
 if(isset($_POST['add'])) {
-    $sql = "INSERT INTO tasklist (titel, body, datum)
-        VALUES ('" . $_POST["titel"] . "','" . $_POST["body"] . "','" . $_POST["datum"] . "')";
-    $result = mysqli_query($mysqli, $sql);
-    header("Refresh:0");
+    makeTask($mysqli);
 }
 
 if(isset($_POST['delete'])) {
-    mysqli_query($mysqli,"DELETE FROM tasklist WHERE id='".$_POST["task-id"]."'");
-    header("Refresh:0");
+    deleteTask($mysqli);
 }
 ?>
 
