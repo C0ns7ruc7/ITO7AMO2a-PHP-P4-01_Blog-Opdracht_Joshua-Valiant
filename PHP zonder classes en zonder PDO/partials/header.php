@@ -22,6 +22,12 @@
             margin: 0;
             padding: 0.5%;
         }
+        textarea{
+            height: 100px
+        }
+        .form-input{
+            width: 250px;
+        }
     </style>
 </head>
 <body>
