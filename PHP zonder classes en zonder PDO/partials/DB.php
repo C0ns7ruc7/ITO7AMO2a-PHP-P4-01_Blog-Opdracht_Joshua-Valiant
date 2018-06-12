@@ -6,29 +6,31 @@
  * Time: 12:41
  */
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
+// Make connection
+$mysqli = new mysqli("localhost", "root", "", "php_database_simple");
 
 // Check connection
-if (!$conn) {
+if (!$mysqli) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM tasklist";
-$result = mysqli_query($conn, $sql);
+// Get tasks
+$getTasks = 'SELECT * FROM tasklist';
+$tasks = $mysqli->query($getTasks);
 
-if (mysqli_num_rows($result) > 0) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["id"]. " - title: " . $row["title"]. " - datum: " . $row["post_datum"]. "<br>";
-    }
-} else {
-    echo "0 results";
+// Make task
+function makeTask($mysqli)
+{
+    $sql = "INSERT INTO tasklist (titel, body, datum)
+        VALUES ('" . $_POST["titel"] . "','" . $_POST["body"] . "','" . $_POST["datum"] . "')";
+    mysqli_query($mysqli, $sql);
+    header("Refresh:0");
 }
 
-mysqli_close($conn);
+// Delete task
+function deleteTask($mysqli){
+    mysqli_query($mysqli,"DELETE FROM tasklist WHERE id='".$_POST["task-id"]."'");
+    header("Refresh:0");
+}
+
 ?>
