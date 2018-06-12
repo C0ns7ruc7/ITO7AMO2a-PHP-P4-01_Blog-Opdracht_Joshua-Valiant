@@ -4,7 +4,7 @@
     <div class="boxicat col-12">
         <div class="body">
             <div class="create-task">
-                <form method="post" action="lijst" class="create-task__form">
+                <form method="post" action="/lijst" class="create-task__form">
                     {{csrf_field()}}
                     <label class="form-label titel-label">Titel:</label><br/>
                     <input class="form-input titel-input" type="text" name="title" placeholder="Titel"><br/><br/>
@@ -22,16 +22,16 @@
 
             <h2>{{ $object->title }}</h2>
             {!! $object->body !!}
-            <p>{{$object->created_at}}</p>
+            <p>geplend voor: {{$object->time}}</p>
 
         </div>
         <div class="boxicat col-2">
-            <form action="lijst/{{ $object->id }}" method="POST">
+            <form action="/lijst/{{ $object->id }}" method="POST">
                 {{method_field('EDIT')}}
                 {{csrf_field()}}
                 <input type="submit" class="btn btn-warning" value="Edit"/>
             </form>
-            <form action="lijst/{{$object->id}}" method="POST">
+            <form action="/lijst/{{$object->id}}" method="POST">
                 {{method_field('DELETE')}}
                 {{csrf_field()}}
                 <input type="submit" class="btn btn-danger" value="Delete"/>
@@ -66,5 +66,4 @@
             margin-top: 15px;
         }
     </style>
-    <?php Header( "lijst" ) ?>
 @endsection
