@@ -12,7 +12,4 @@
 */
 
 Route::get('/', 'GenericController@index');
-
-Route::group(['prefix' => '/lijst'], function() {
-    Route::resource('/', 'LijstController');
-});
+Route::resource('lijst', 'LijstController');

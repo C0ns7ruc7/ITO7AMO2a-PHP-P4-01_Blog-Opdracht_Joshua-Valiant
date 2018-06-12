@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Task;
 
 class LijstController extends Controller
 {
@@ -16,6 +17,7 @@ class LijstController extends Controller
     {
         $dbQuerry = DB::table('taken_lijst')->get();
         return view('lijst.index', compact('dbQuerry'));
+
     }
 
     /**
@@ -36,7 +38,17 @@ class LijstController extends Controller
      */
     public function store(Request $request)
     {
-        return view('lijst.store');
+        $this->validate(request(), [
+            'title' => 'required|max:128'
+        ]);
+
+        Task::create([
+            'title'  => request('title'),
+            'body'  => request('body'),
+            'time'  => request('time')
+        ]);
+
+        return $this->index();
     }
 
     /**
@@ -81,6 +93,7 @@ class LijstController extends Controller
      */
     public function destroy($id)
     {
-        return view('lijst.destroy');
+        DB::table('taken_lijst')->where('id', $id)->delete();
+        return $this->index();
     }
 }

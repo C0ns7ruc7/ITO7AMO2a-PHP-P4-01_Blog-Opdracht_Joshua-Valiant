@@ -8,6 +8,9 @@
 
     <title>{{config('app_name')}}</title>
 
+    {{-- CSRF Token --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -24,13 +27,8 @@
             height: 100vh;
             margin: 0;
         }
-        textarea{
-            height: 100px
-        }
-        .form-input{
-            width: 250px;
-        }
     </style>
+    @yield('css')
 </head>
 <body>
     <div>
