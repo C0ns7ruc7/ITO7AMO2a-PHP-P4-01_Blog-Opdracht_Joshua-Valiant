@@ -7,11 +7,11 @@
                 <form method="post" action="/lijst" class="create-task__form">
                     {{csrf_field()}}
                     <label class="form-label titel-label">Titel:</label><br/>
-                    <input class="form-input titel-input" type="text" name="title" placeholder="Titel"><br/><br/>
+                    <input class="form-input titel-input" type="text" name="title" placeholder="Titel" value="@if (! empty($edit)) {{ $edit->title }} @endif"><br/><br/>
                     <label class="form-label beschrijving-label">Omschrijving:</label><br/>
-                    <textarea class="form-input omschrijving-input" name="body" placeholder="Omschrijving"></textarea><br/><br/>
+                    <textarea class="form-input omschrijving-input" name="body" placeholder="Omschrijving">@if (! empty($edit)) {{ $edit->body }} @endif</textarea><br/><br/>
                     <label class="form-label datum-label">Datum:</label><br/>
-                    <input class="form-input datum-input" type="date" name="time" placeholder="Datum"><br/></br>
+                    <input class="form-input datum-input" type="date" name="time" placeholder="Datum" value="@if (! empty($edit)) {{ $edit->time }}@endif"><br/></br>
                     <input class="form-button" type="submit" value="Verzenden"/>
                 </form>
             </div>
@@ -67,3 +67,4 @@
         }
     </style>
 @endsection
+

@@ -13,11 +13,11 @@ class LijstController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($edit = null)
     {
         $dbQuerry = DB::table('taken_lijst')->get();
-        return view('lijst.index', compact('dbQuerry'));
 
+        return view('lijst.index', compact('dbQuerry', 'edit'));
     }
 
     /**
@@ -70,7 +70,8 @@ class LijstController extends Controller
      */
     public function edit($id)
     {
-        return view('lijst.edit');
+        $data =DB::table('taken_lijst')->where('id', $id)->first();
+        return $this->index($data);
     }
 
     /**
