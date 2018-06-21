@@ -15,7 +15,7 @@ class LijstController extends Controller
      */
     public function index()
     {
-        $dbQuerry = DB::table('taken_lijst')->get();
+        $dbQuerry = DB::table('taken_lijst')->orderBy('time')->get();
 
         return view('lijst.index', compact('dbQuerry'));
     }
@@ -59,8 +59,8 @@ class LijstController extends Controller
      */
     public function show($id)
     {
-        $edit = DB::table('taken_lijst')->where('id', $id)->first();
-        return view('lijst.index', compact('edit'));
+        $show = DB::table('taken_lijst')->where('id', $id)->first();
+        return view('lijst.show', compact('show'));
     }
 
     /**
@@ -84,7 +84,19 @@ class LijstController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view('lijst.update');
+        DB::table('taken_lijst')->where('id', $id)->delete();
+
+        $this->validate(request(), [
+            'title' => 'required|max:128'
+        ]);
+
+        Task::create([
+            'title'  => request('title'),
+            'body'  => request('body'),
+            'time'  => request('time')
+        ]);
+
+        return $this->index();
     }
 
     /**

@@ -6,4 +6,7 @@
   border: 1px solid black;
   background-color: white;
 }
-
+html, body{
+  padding: 0;
+  margin: 0;
+}

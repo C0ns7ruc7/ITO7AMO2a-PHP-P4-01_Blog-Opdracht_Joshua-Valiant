@@ -4,13 +4,13 @@
     <div class="boxicat col-12">
         <div class="body">
             <div class="create-task">
-                <form method="post" action="/lijst" class="create-task__form">
-
+                <form method="post" action=@if (isset($edit))"/lijst/{{$edit->id}}/update" @else "/lijst" @endif class="create-task__form">
                     {{csrf_field()}}
 
                     <label class="form-label titel-label">
                         Titel:
                     </label><br/>
+
 
                     <input class="form-input titel-input"
                            type="text"

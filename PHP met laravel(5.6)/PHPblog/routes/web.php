@@ -12,4 +12,7 @@
 */
 
 Route::get('/', 'GenericController@index');
-Route::resource('lijst', 'LijstController');
+Route::resource('lijst', 'LijstController')->except([
+    'update'
+]);
+Route::post('/lijst/{id}/update', 'LijstController@update');
