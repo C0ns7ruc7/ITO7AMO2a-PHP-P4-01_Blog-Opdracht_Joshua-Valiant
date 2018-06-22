@@ -27,6 +27,17 @@ function makeTask($mysqli)
     header("Refresh:0");
 }
 
+// update task
+function updateTask($mysqli){
+    $sql = "UPDATE tasklist 
+        SET title=".$_POST["titel"].",
+            body=".$_POST["body"].",
+            datum=".$_POST["datum"]."
+        WHERE id='".$_POST["task-id"].")";
+    mysqli_query($mysqli, $sql);
+    header("Refresh:0");
+}
+
 // Delete task
 function deleteTask($mysqli){
     mysqli_query($mysqli,"DELETE FROM tasklist WHERE id='".$_POST["task-id"]."'");
