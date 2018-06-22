@@ -27,13 +27,21 @@ function makeTask($mysqli)
     header("Refresh:0");
 }
 
+// edit Task
+function editTask($mysqli){
+
+    $sql = "SELECT * FROM tasklist WHERE id=".$_POST["task-id"]."";
+
+    return mysqli_query($mysqli, $sql);
+}
+
 // update task
 function updateTask($mysqli){
     $sql = "UPDATE tasklist 
-        SET title=".$_POST["titel"].",
+        SET titel=".$_POST["titel"].",
             body=".$_POST["body"].",
             datum=".$_POST["datum"]."
-        WHERE id='".$_POST["task-id"].")";
+        WHERE id=".$_POST["task-id"].";";
     mysqli_query($mysqli, $sql);
     header("Refresh:0");
 }
