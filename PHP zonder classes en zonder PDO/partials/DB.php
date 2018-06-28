@@ -38,13 +38,14 @@ function editTask($mysqli){
 // update task
 function updateTask($mysqli){
     $sql = "UPDATE tasklist 
-        SET titel=".$_POST["titel"].",
-            body=".$_POST["body"].",
-            datum=".$_POST["datum"]."
+        SET titel="."'".$_POST["titel"]."'".",
+            body="."'".$_POST["body"]."'".",
+            datum="."'".$_POST["datum"]."'"."
         WHERE id=".$_POST["task-id"].";";
 
     if (mysqli_query($mysqli, $sql)) {
         echo "Record updated successfully";
+        header("Refresh:2");
     } else {
         echo "Error updating record: " . mysqli_error($mysqli);
     }
