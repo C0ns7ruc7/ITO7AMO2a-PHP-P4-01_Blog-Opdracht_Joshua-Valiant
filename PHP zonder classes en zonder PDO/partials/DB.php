@@ -42,8 +42,12 @@ function updateTask($mysqli){
             body=".$_POST["body"].",
             datum=".$_POST["datum"]."
         WHERE id=".$_POST["task-id"].";";
-    mysqli_query($mysqli, $sql);
-    header("Refresh:0");
+
+    if (mysqli_query($mysqli, $sql)) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . mysqli_error($mysqli);
+    }
 }
 
 // Delete task

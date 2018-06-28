@@ -9,7 +9,7 @@ if(isset($_POST['edit'])) {
     $edit = editTask($mysqli);
 }
 if(isset($_POST['update'])) {
-    updateTask($mysqli);
+    $update=updateTask($mysqli);
 }
 if(isset($_POST['delete'])) {
     deleteTask($mysqli);
