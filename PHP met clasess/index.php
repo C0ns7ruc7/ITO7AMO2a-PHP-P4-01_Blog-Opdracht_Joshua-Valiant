@@ -8,16 +8,16 @@ $crud = new Crud();
 $tasks = $crud->getTasks();
 
 if(isset($_POST['add'])) {
-    makeTask($connection);
+    $crud->makeTask();
 }
 if(isset($_POST['edit'])) {
-    $edit = editTask($connection);
+    $edit = $crud->editTask();
 }
 if(isset($_POST['update'])) {
-    $update=updateTask($connection);
+    $update = $crud->updateTask();
 }
 if(isset($_POST['delete'])) {
-    deleteTask($connection);
+    $crud->deleteTask();
 }
 ?>
 
